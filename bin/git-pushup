@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+remote="$1"
+if [[ -z "$remote" ]]; then
+    remote=origin
+fi
+
+current_branch=$(git current-branch)
+if [[ -z $current_branch ]]; then 
+    echo "Unable to find current branch. Aborting"
+    exit 2
+fi
+
+git push -u $remote $current_branch

@@ -1,0 +1,4 @@
+#!/bin/bash
+# dig, but answer only. digs -> dig short
+
+dig +noall +answer $@

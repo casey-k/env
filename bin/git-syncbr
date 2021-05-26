@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+git remote update -p
+
+# Delete local branches that have been merged into the current branch
+branches="$(git branch --merged | grep -v "^\*" | grep -v master)"
+if [[ "" != "$branches" ]]; then
+    echo "$branches" | xargs -n 1 git branch -d
+fi
+
